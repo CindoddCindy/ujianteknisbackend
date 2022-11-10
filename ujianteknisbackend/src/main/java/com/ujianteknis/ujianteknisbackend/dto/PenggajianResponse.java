@@ -5,7 +5,6 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.Period;
 import java.util.List;
 import java.util.Map;
 
@@ -13,7 +12,7 @@ import java.util.Map;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class UmurPasienResponse {
-  public Map<String,Integer> umur;
-
+public class PenggajianResponse {
+  public String employee;
+  public Map<String, Double > komponengaji;
 }

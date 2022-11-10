@@ -8,15 +8,17 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.time.LocalDate;
+
 @RestController
 public class UmurPasienController {
 
   @Autowired
   UmurPasienService umurPasienService;
 
-  @GetMapping("/calculateage/{dateofbirth}")
-  public UmurPasienResponse getUsia(@PathVariable("dateofbirth") String dateofbirth) {
-    return umurPasienService.getAge(dateofbirth);
+  @GetMapping("/calculateage/28Oktober1983")
+  public UmurPasienResponse getUsia() {
+    return umurPasienService.getAge();
   }
 
 }

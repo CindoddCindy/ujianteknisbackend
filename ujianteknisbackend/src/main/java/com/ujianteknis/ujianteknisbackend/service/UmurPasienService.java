@@ -2,26 +2,28 @@ package com.ujianteknis.ujianteknisbackend.service;
 
 import com.ujianteknis.ujianteknisbackend.dto.UmurPasienResponse;
 import org.springframework.stereotype.Service;
-
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.Period;
-import java.util.Calendar;
-import java.util.Date;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 @Service
 public class UmurPasienService {
 
-  public UmurPasienResponse getAge(String tanggalLahir){
+  public UmurPasienResponse getAge(){
     LocalDate currentDate = LocalDate.now();
-    LocalDate birthDay = LocalDate.parse(tanggalLahir);
-    Period period = Period.between(birthDay, currentDate);
+    LocalDate dob = LocalDate.of(1983, 10, 28);
+    Period period = Period.between(dob, currentDate);
+    Map<String,Integer> umur = new HashMap<>();
+    umur.put("year :", period.getYears());
+    umur.put("month :", period.getMonths());
+    umur.put("date :" ,period.getDays());
 
     return UmurPasienResponse.builder()
-        .umur(":")
-        .year(Period.ofYears(period.getYears()))
-        .month(Period.ofMonths(period.getMonths()))
-        .date(Period.ofDays(period.getDays()))
+        .umur(umur)
         .build();
 
   }
