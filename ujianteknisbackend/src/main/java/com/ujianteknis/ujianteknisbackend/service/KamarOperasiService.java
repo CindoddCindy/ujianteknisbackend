@@ -8,9 +8,6 @@ import java.util.List;
 @Service
 public class KamarOperasiService {
 
-  public static final String JAM_SEPULUH="10:00";
-  public static final String JAM_TIGA="15:00";
-
   public Boolean  getValue(String [] durasi) {
     try {
       durasi = new String[]{"10:00","15:00"};
